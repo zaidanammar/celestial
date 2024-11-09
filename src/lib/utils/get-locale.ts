@@ -1,31 +1,29 @@
-// Define or import Lang type to ensure consistency
-export type Lang = 'en' | 'ko';
+// Pre-import locale files
+import en_common from '@/lib/locales/en/common.json';
+import en_home from '@/lib/locales/en/home.json';
+import ko_common from '@/lib/locales/ko/common.json';
+import ko_home from '@/lib/locales/ko/home.json';
+import { Lang } from '@/lib/models/lang';
 
 // Define supported JSON files and the types of their content
-type LocaleFile = 'common' | 'navbar';
+type LocaleFile = 'common' | 'home';
 
 // define types for these JSON structures
 type CommonLocale = typeof en_common;
-type NavbarLocale = typeof en_navbar;
+type HomeLocale = typeof en_home;
 
 // Define paths for each locale file with template literals for type safety
-type LocalePaths = `common.${keyof CommonLocale & string}` | `navbar.${keyof NavbarLocale & string}`;
-
-// Pre-import locale files
-import en_common from '@/lib/locales/en/common.json';
-import en_navbar from '@/lib/locales/en/navbar.json';
-import ko_common from '@/lib/locales/ko/common.json';
-import ko_navbar from '@/lib/locales/ko/navbar.json';
+type LocalePaths = `common.${keyof CommonLocale & string}` | `home.${keyof HomeLocale & string}`;
 
 // Define locale data with type safety for Lang and LocaleFile types
 const localeData: Record<Lang, Record<LocaleFile, object>> = {
   en: {
     common: en_common,
-    navbar: en_navbar,
+    home: en_home,
   },
   ko: {
     common: ko_common,
-    navbar: ko_navbar,
+    home: ko_home,
   },
 };
 

@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     default: 'Assignment Coin Siren',
   },
   description: 'Assignment Coin Siren',
+  icons: '/hypehire-favicon.png',
 };
 
 export default function RootLayout({
