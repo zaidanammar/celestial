@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
 import { LayoutProps } from '../../.next/types/app/layout';
+import { Params } from '@/lib/models/page';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -17,10 +18,16 @@ export const metadata: Metadata = {
   icons: '/hypehire-favicon.png',
 };
 
-export default function RootLayout({ children }: LayoutProps) {
+export default async function RootLayout(
+  props: LayoutProps & {
+    params: Params;
+  },
+) {
+  const { lang } = await props.params;
+
   return (
-    <html lang="en">
-      <body className={`${poppins.className} antialiased`}>{children}</body>
+    <html lang={lang}>
+      <body className={`${poppins.className} antialiased`}>{props.children}</body>
     </html>
   );
 }

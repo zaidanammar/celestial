@@ -1,6 +1,6 @@
 import { Lang } from './lang';
 
-type Params = Promise<{
+export type Params = Promise<{
   lang: Lang;
 }>;
 
