@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
+import { LayoutProps } from '../../.next/types/app/layout';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -16,11 +17,7 @@ export const metadata: Metadata = {
   icons: '/hypehire-favicon.png',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
       <body className={`${poppins.className} antialiased`}>{children}</body>

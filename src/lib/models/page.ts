@@ -1,17 +1,14 @@
-import { NextPage } from 'next';
-
 import { Lang } from './lang';
 
-type AppParams = {
+type Params = Promise<{
   lang: Lang;
-  id?: string;
-};
+}>;
 
-export type AppNextPage = NextPage & {
-  params: AppParams;
+export type AppNextPage = {
+  params: Params;
 };
 
 export type AppNextLayout = {
-  params: AppParams;
+  params: Params;
   children: React.ReactNode;
 };

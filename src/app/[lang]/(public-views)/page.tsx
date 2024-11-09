@@ -11,7 +11,9 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function Page({ params: { lang } }: AppNextPage) {
+export default async function Page(props: AppNextPage) {
+  const { lang } = await props.params;
+
   return (
     <>
       <div className="flex lg:flex-row flex-col gap-10">
