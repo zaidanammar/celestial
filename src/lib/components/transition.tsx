@@ -2,7 +2,7 @@ import { motion, Transition, useAnimation, Variants } from 'framer-motion';
 import { FC, useEffect, useMemo } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-type AnimationDirection = 'up' | 'down' | 'left' | 'right';
+type AnimationDirection = 'up' | 'down' | 'left' | 'right' | 'fadeIn';
 
 const variantMap: Record<AnimationDirection, Variants> = {
   up: {
@@ -20,6 +20,10 @@ const variantMap: Record<AnimationDirection, Variants> = {
   right: {
     visible: { opacity: 1, x: 0 },
     hidden: { opacity: 0, x: -100 },
+  },
+  fadeIn: {
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
   },
 };
 
@@ -68,3 +72,5 @@ export const AppTransition: FC<Props> = ({
     </motion.div>
   );
 };
+
+export default AppTransition;

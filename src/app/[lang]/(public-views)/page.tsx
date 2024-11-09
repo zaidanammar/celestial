@@ -16,10 +16,10 @@ export default async function Page(props: AppNextPage) {
 
   return (
     <>
-      <div className="flex lg:flex-row flex-col gap-10">
+      <section className="flex lg:flex-row flex-col gap-10">
         <Headline lang={lang} />
         <CardSlider lang={lang} />
-      </div>
+      </section>
     </>
   );
 }

@@ -13,7 +13,7 @@ type CommonLocale = typeof en_common;
 type HomeLocale = typeof en_home;
 
 // Define paths for each locale file with template literals for type safety
-type LocalePaths = `common.${keyof CommonLocale & string}` | `home.${keyof HomeLocale & string}`;
+export type LocalePaths = `common.${keyof CommonLocale & string}` | `home.${keyof HomeLocale & string}`;
 
 // Define locale data with type safety for Lang and LocaleFile types
 const localeData: Record<Lang, Record<LocaleFile, object>> = {

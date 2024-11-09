@@ -48,10 +48,13 @@ export function CardSlider({ lang }: { lang: Lang }) {
 
   return (
     <div className="lg:w-1/2 w-full flex justify-center items-center">
-      <AppTransition direction="up">
+      <AppTransition direction="fadeIn">
         <div className="flex justify-center">
           <Tooltip anchorPosition="center">
-            <p className="text-#40E2E8 font-black text-lg">{t('home.headlineWorkType')}</p>
+            <div className="flex items-center gap-2">
+              <Image src="/dollar.png" alt="dollar" width={26} height={26} />
+              <p className="text-[#00C696] font-black text-lg">{t('home.cardSliderTooltip')}</p>
+            </div>
           </Tooltip>
         </div>
         <div className="mt-6 relative w-[250px] sm:w-[300px] h-[350px] sm:h-[400px]">

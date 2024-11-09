@@ -1,5 +1,6 @@
 'use client';
 
+import { BenefitSection } from '@/app/[lang]/(public-views)/components/client.benefit.section';
 import Tooltip from '@/lib/components/tooltip';
 import { AppTransition } from '@/lib/components/transition';
 import { Lang } from '@/lib/models/lang';
@@ -11,7 +12,7 @@ export function Headline({ lang }: { lang: Lang }) {
   return (
     <aside className="flex flex-col lg:w-1/2 w-full">
       <AppTransition
-        direction="up"
+        direction="fadeIn"
         transition={{
           delay: 0.3,
         }}>
@@ -36,6 +37,7 @@ export function Headline({ lang }: { lang: Lang }) {
           </p>
         </div>
       </AppTransition>
+      <BenefitSection lang={lang} />
     </aside>
   );
 }
