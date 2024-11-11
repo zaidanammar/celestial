@@ -1,32 +1,10 @@
 'use client';
 
+import { services } from '@/app/[lang]/(public-views)/constant';
 import AppTransition from '@/lib/components/transition';
 import { Lang } from '@/lib/models/lang';
 import { getLocale, LocalePaths } from '@/lib/utils/get-locale';
 import Image from 'next/image';
-
-const services = [
-  {
-    title: 'service1Title',
-    icon: '/marketing-icon.svg',
-  },
-  {
-    title: 'service2Title',
-    icon: '/image-icon.svg',
-  },
-  {
-    title: 'service3Title',
-    icon: '/box-icon.svg',
-  },
-  {
-    title: 'service4Title',
-    icon: '/target-icon.svg',
-  },
-  {
-    title: 'service5Title',
-    icon: '/phone-icon.svg',
-  },
-];
 
 export function ServiceSection({ lang }: { lang: Lang }) {
   const t = getLocale(lang);

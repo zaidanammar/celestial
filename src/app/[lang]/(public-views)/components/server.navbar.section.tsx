@@ -10,7 +10,7 @@ export async function Navbar({ lang }: { lang: Lang }) {
   const t = getLocale(lang);
 
   return (
-    <aside className="flex justify-between items-center">
+    <nav className="flex justify-between items-center">
       <div>
         <Image src={logo} alt="Logo" width={114} height={21} />
       </div>
@@ -21,6 +21,6 @@ export async function Navbar({ lang }: { lang: Lang }) {
       <div className="bg-white py-2 px-6 rounded-lg cursor-pointer hidden md:block">
         <p className="text-[#4A77FF] font-black">{t('home.navContactus')}</p>
       </div>
-    </aside>
+    </nav>
   );
 }

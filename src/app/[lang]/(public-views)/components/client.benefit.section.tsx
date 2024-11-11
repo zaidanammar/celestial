@@ -1,23 +1,9 @@
 'use client';
 
+import { benefits } from '@/app/[lang]/(public-views)/constant';
 import AppTransition from '@/lib/components/transition';
 import { Lang } from '@/lib/models/lang';
 import { getLocale, LocalePaths } from '@/lib/utils/get-locale';
-
-const benefits = [
-  {
-    title: 'benefit1Title',
-    description: 'benefit1Description',
-  },
-  {
-    title: 'benefit2Title',
-    description: 'benefit2Description',
-  },
-  {
-    title: 'benefit3Title',
-    description: 'benefit3Description',
-  },
-];
 
 export function BenefitSection({ lang }: { lang: Lang }) {
   const t = getLocale(lang);
