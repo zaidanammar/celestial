@@ -1,14 +1,19 @@
 'use client';
 
-import { profiles } from '@/app/[lang]/(public-views)/constant';
 import Tooltip from '@/lib/components/tooltip';
 import { AppTransition } from '@/lib/components/transition';
 import { Lang } from '@/lib/models/lang';
+import { GetProfileListResponse } from '@/lib/services/get-profile-list/types';
 import { getLocale } from '@/lib/utils/get-locale';
 import Image from 'next/image';
 import React, { useState } from 'react';
 
-export function CardSlider({ lang }: { lang: Lang }) {
+type CardSliderProps = {
+  lang: Lang;
+  profiles: GetProfileListResponse;
+};
+
+export function CardSlider({ lang, profiles }: CardSliderProps) {
   const t = getLocale(lang);
   const [currentIndex, setCurrentIndex] = useState(0);
 

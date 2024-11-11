@@ -4,6 +4,7 @@ import { CardSlider } from '@/app/[lang]/(public-views)/components/client.card.s
 import { Headline } from '@/app/[lang]/(public-views)/components/client.headline.section';
 import { ServiceSection } from '@/app/[lang]/(public-views)/components/client.service.section';
 import { AppNextPage } from '@/lib/models/page';
+import { getProfiles } from '@/lib/services/get-profile-list';
 import { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -14,12 +15,13 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Page(props: AppNextPage) {
   const { lang } = await props.params;
+  const profileData = await getProfiles();
 
   return (
     <>
       <section className="flex lg:flex-row flex-col gap-10">
         <Headline lang={lang} />
-        <CardSlider lang={lang} />
+        <CardSlider lang={lang} profiles={profileData} />
       </section>
       <ServiceSection lang={lang} />
     </>
