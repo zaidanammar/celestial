@@ -9,7 +9,7 @@ export function BenefitSection({ lang }: { lang: Lang }) {
   const t = getLocale(lang);
 
   return (
-    <aside className="mt-10 hidden md:flex gap-6">
+    <aside className="mt-10 hidden lg:flex gap-6">
       {benefits.map((benefit, index) => (
         <AppTransition
           key={index}

@@ -5,9 +5,10 @@ type AnchorPosition = 'left' | 'right' | 'center';
 type TooltipProps = {
   children: React.ReactNode;
   anchorPosition?: AnchorPosition;
+  className?: string;
 };
 
-export const Tooltip = ({ anchorPosition = 'left', children }: TooltipProps) => {
+export const Tooltip = ({ anchorPosition = 'left', children, className }: TooltipProps) => {
   const tailPositionClasses = {
     left: 'left-2',
     center: 'left-1/2 -translate-x-1/2',
@@ -17,7 +18,7 @@ export const Tooltip = ({ anchorPosition = 'left', children }: TooltipProps) => 
   return (
     <div className="relative inline-block">
       <div
-        className="bg-white text-blue-400 rounded-lg text-sm shadow-md"
+        className={`bg-white text-blue-400 rounded-lg text-sm shadow-md ${className}`}
         style={{
           padding: '0.5rem 1rem',
         }}>

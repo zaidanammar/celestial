@@ -16,8 +16,8 @@ export function Headline({ lang }: { lang: Lang }) {
         transition={{
           delay: 0.3,
         }}>
-        <Tooltip>
-          <p className="text-[#40E2E8] font-black text-lg">{t('home.headlineWorkType')}</p>
+        <Tooltip className="lg:bg-white bg-[#8BC4FF]">
+          <p className="lg:text-[#40E2E8] text-white font-black text-lg">{t('home.headlineWorkType')}</p>
         </Tooltip>
       </AppTransition>
 
