@@ -9,7 +9,7 @@ const dropdownItems = [
   { label: '한국어 가능 외국인 채용', href: '/ko' },
 ];
 
-export function Selection() {
+export function SelectionDropdown() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 

@@ -1,6 +1,6 @@
 'use server';
 
-import { Selection } from '@/app/[lang]/(public-views)/components/client.selection.section';
+import { SelectionDropdown } from '@/lib/components/molecules/client.selection.dropdown';
 import { Lang } from '@/lib/models/lang';
 import { getLocale } from '@/lib/utils/get-locale';
 import Image from 'next/image';
@@ -16,7 +16,7 @@ export async function Navbar({ lang }: { lang: Lang }) {
         <Image src={logo} alt="Logo" width={114} height={21} />
       </div>
       <div className="hidden md:flex items-center gap-4">
-        <Selection />
+        <SelectionDropdown />
         <p className="text-white font-black">{t('home.navTitle')}</p>
       </div>
 

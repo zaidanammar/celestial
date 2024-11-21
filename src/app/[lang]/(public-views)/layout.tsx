@@ -1,7 +1,7 @@
 'use server';
 
-import { Footer } from '@/app/[lang]/(public-views)/components/server.footer.section';
-import { Navbar } from '@/app/[lang]/(public-views)/components/server.navbar.section';
+import { Footer } from '@/lib/components/organisms/server.footer.section';
+import { Navbar } from '@/lib/components/organisms/server.navbar.section';
 import { AppNextLayout } from '@/lib/models/page';
 
 export default async function PublicLayout(props: AppNextLayout) {

@@ -1,8 +1,8 @@
 'use server';
 
-import { CardSlider } from '@/app/[lang]/(public-views)/components/client.card.slider';
-import { Headline } from '@/app/[lang]/(public-views)/components/client.headline.section';
-import { ServiceSection } from '@/app/[lang]/(public-views)/components/client.service.section';
+import { CardSlider } from '@/lib/components/organisms/client.card.slider';
+import { Headline } from '@/lib/components/organisms/client.headline.section';
+import { ServiceSection } from '@/lib/components/organisms/server.service.section';
 import { AppNextPage } from '@/lib/models/page';
 import { getProfiles } from '@/lib/services/get-profile-list';
 import { Metadata } from 'next';

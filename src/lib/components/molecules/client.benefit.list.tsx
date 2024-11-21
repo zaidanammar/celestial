@@ -1,11 +1,11 @@
 'use client';
 
-import { benefits } from '@/app/[lang]/(public-views)/constant';
-import AppTransition from '@/lib/components/transition';
+import AppTransition from '@/lib/components/atoms/transition';
+import { benefits } from '@/lib/constants';
 import { Lang } from '@/lib/models/lang';
 import { getLocale, LocalePaths } from '@/lib/utils/get-locale';
 
-export function BenefitSection({ lang }: { lang: Lang }) {
+export function BenefitList({ lang }: { lang: Lang }) {
   const t = getLocale(lang);
 
   return (

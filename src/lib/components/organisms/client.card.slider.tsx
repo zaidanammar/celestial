@@ -1,11 +1,10 @@
 'use client';
 
-import Tooltip from '@/lib/components/tooltip';
-import { AppTransition } from '@/lib/components/transition';
+import { AppTransition } from '@/lib/components/atoms/transition';
+import { ProfileCard } from '@/lib/components/molecules/client.profile.card';
+import { SliderTooltip } from '@/lib/components/molecules/client.slider.tooltip';
 import { Lang } from '@/lib/models/lang';
 import { GetProfileListResponse } from '@/lib/services/get-profile-list/types';
-import { getLocale } from '@/lib/utils/get-locale';
-import Image from 'next/image';
 import React, { useState } from 'react';
 
 type CardSliderProps = {
@@ -14,7 +13,6 @@ type CardSliderProps = {
 };
 
 export function CardSlider({ lang, profiles }: CardSliderProps) {
-  const t = getLocale(lang);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
@@ -28,14 +26,7 @@ export function CardSlider({ lang, profiles }: CardSliderProps) {
   return (
     <div className="lg:w-1/2 w-full flex justify-center items-center">
       <AppTransition direction="fadeIn">
-        <div className="flex justify-center">
-          <Tooltip anchorPosition="center">
-            <div className="flex items-center gap-2">
-              <Image src="/dollar.png" alt="dollar" width={26} height={26} />
-              <p className="text-[#00C696] font-black text-lg">{t('home.cardSliderTooltip')}</p>
-            </div>
-          </Tooltip>
-        </div>
+        <SliderTooltip lang={lang} />
         <div className="mt-6 relative w-[250px] sm:w-[300px] h-[350px] sm:h-[400px]">
           <button
             onClick={handlePrev}
@@ -58,39 +49,7 @@ export function CardSlider({ lang, profiles }: CardSliderProps) {
                 key={index}
                 className={`absolute inset-0 transition-all duration-500 transform ${positionClass}`}
                 style={{ transition: 'transform 0.5s ease, opacity 0.5s ease' }}>
-                <div className="bg-white rounded-xl shadow-lg p-6 text-center h-full">
-                  <div className="relative size-20 sm:size-28 mx-auto mb-4">
-                    <Image
-                      src={profile.image}
-                      alt={profile.name}
-                      width={140}
-                      height={140}
-                      className="rounded-full object-cover"
-                    />
-                    <Image
-                      src={profile.flag}
-                      alt="Country Flag"
-                      width={25}
-                      height={20}
-                      className="absolute bottom-0 right-0 w-6 h-4 rounded-sm border border-white"
-                    />
-                  </div>
-
-                  <h3 className="text-xl font-bold">{profile.name}</h3>
-                  <p className="text-[#4A77FF] font-bold">
-                    {profile.position} · {profile.experience}
-                  </p>
-
-                  <div className="mt-4 space-y-2">
-                    {profile.skills.map((skill, skillIndex) => (
-                      <div
-                        key={skillIndex}
-                        className="px-3 py-1 text-[#5E626F] text-xs sm:text-sm border rounded-lg border-[#C1C5CF] inline-block ml-2 font-bold">
-                        {skill}
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                <ProfileCard profile={profile} />
               </div>
             );
           })}
